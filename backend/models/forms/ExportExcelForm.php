@@ -30,4 +30,11 @@ class ExportExcelForm extends \yii\db\ActiveRecord
             [['excelFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'xlsx'],
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'excelFile' => 'Excel файл'
+        ];
+    }
 }

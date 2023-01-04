@@ -14,6 +14,6 @@ $form = ActiveForm::begin([
 
 <?= $form->field($model, 'excelFile')->fileInput() ?>
 
-<?= \yii\helpers\Html::submitButton('Export', ['class' => 'btn btn-success']) ?>
+<?= \yii\helpers\Html::submitButton('Експорт', ['class' => 'btn btn-success']) ?>
 
 <?php ActiveForm::end() ?>

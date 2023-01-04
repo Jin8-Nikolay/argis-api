@@ -81,32 +81,6 @@ AppAsset::register($this);
 
     <?php $this->endBody() ?>
     <script src="https://js.arcgis.com/4.25/"></script>
-    <script type="text/arcgis-arcade" id="chart">
-      var attributes = {};
-      var totalFields = [];
-            $.ajax({
-                type: "POST",
-                url: 'site/data',
-                success: function (data) {
-                    $.each(data, function (i, item) {
-                        attributes['2019'] = item.description.year_2019;
-                        attributes['2020'] = item.description.year_2020;
-                        attributes['2021'] = item.description.year_2021;
-                    })
-                },
-            })
-      return {
-        type: "media",
-        attributes: attributes,
-        title: "Crime Summary",
-        mediaInfos: [{
-          type: "column-chart",
-          value: {
-            fields: ["2019", "2020", "2021"]
-          }
-        }]
-      };
-    </script>
     <script>
         require([
             "esri/config",
@@ -184,7 +158,7 @@ AppAsset::register($this);
 
             const view = new MapView({
                 map: map,
-                center: [-89.93307, 29.973197296501905],
+                center: [28.67307, 50.2639208],
                 zoom: 13,
                 container: "viewDiv",
                 popup: {
@@ -261,7 +235,6 @@ AppAsset::register($this);
                         });
                         graphicsLayer.add(polygonGraphic);
                     })
-                    console.log(data);
                 },
             })
         });
