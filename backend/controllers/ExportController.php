@@ -21,36 +21,36 @@ class ExportController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['index', 'download'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'download' => ['post'],
-                ],
-            ],
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                    [
+//                        'actions' => ['error'],
+//                        'allow' => true,
+//                    ],
+//                    [
+//                        'actions' => ['index', 'download'],
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'download' => ['post'],
+//                ],
+//            ],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function actions()
+    public function actions(): array
     {
         return [
             'error' => [
@@ -64,7 +64,7 @@ class ExportController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $model = Yii::$container->get(ExportExcelForm::class);
         return $this->render('index', compact('model'));
@@ -89,7 +89,7 @@ class ExportController extends Controller
      * @throws \yii\db\StaleObjectException
      * @return void
      */
-    private function deleteAll()
+    private function deleteAll(): void
     {
         $mapPoints = MapPoints::find()->all();
 
